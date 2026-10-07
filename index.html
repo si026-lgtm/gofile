@@ -1,148 +1,288 @@
 <!DOCTYPE html>
 <html lang="ja-JP">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTCWQS2H21"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LLNVFW2G0S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-HTCWQS2H21');
+    gtag('config', 'G-LLNVFW2G0S');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>gofile - Private Video Storage</title>
+  
+  <title>Gofile - 【動あり】玉城ティナが流出！？</title>
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="【動あり】玉城ティナが流出！？" />
+  <meta name="twitter:image" content="https://assets.st-note.com/img/1791288914-Y7mgLI9pT625JKaA4Uq0hvQN.png" />
   
   <style>
-    body { margin: 0; padding: 0; font-family: -apple-system, sans-serif; background-color: #0b0b0b; color: #fff; }
-    .header-bar { background: #111; border-bottom: 1px solid #222; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
-    .logo-text { font-size: 22px; font-weight: 900; letter-spacing: -1px; }
-    .logo-text span { color: #2563eb; }
-    
-    .container { padding: 15px; max-width: 600px; margin: 0 auto; }
-    .intro-text { text-align: center; margin-bottom: 20px; padding: 10px; border-radius: 8px; background: rgba(224, 36, 36, 0.05); border: 1px solid #e02424; }
-    .intro-text h1 { font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 5px; }
-    .follow-note { font-size: 11px; color: #e02424; font-weight: bold; }
+    :root {
+      --gf-bg: #0b0c0e;
+      --gf-card-bg: #15181c;
+      --gf-yellow: #ffb703;
+      --gf-yellow-glow: rgba(255, 183, 3, 0.4);
+      --gf-accent-red: #ff2a5f;
+      --gf-text-main: #f3f4f6;
+      --gf-text-sub: #9ca3af;
+      --gf-border: #2a2e35;
+    }
 
-    .video-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    .video-item { background: #161616; border-radius: 12px; overflow: hidden; border: 1px solid #333; display: block; cursor: pointer; }
-    .thumbnail-wrapper { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; }
-    .thumbnail-wrapper img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
-    .play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: rgba(0,0,0,0.6); border: 2px solid #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
-    .play-overlay::after { content: ""; border-left: 15px solid #fff; border-top: 10px solid transparent; border-bottom: 10px solid transparent; margin-left: 4px; }
-    .info-area { padding: 15px; text-align: center; }
-    .btn-play { background: #2563eb; color: #fff; font-weight: bold; font-size: 14px; padding: 10px 0; border-radius: 6px; width: 100%; display: block; border: none; }
-    
-    /* モーダル */
-    #auth-modal {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;
+    body { 
+      margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      background-color: var(--gf-bg); color: var(--gf-text-main); display: flex; flex-direction: column; min-height: 100vh;
     }
-    .modal-content {
-      background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px;
-      max-width: 350px; width: 100%; text-align: center;
-    }
-    .modal-title { font-size: 18px; font-weight: 900; color: #fff; margin-bottom: 15px; }
-    .modal-desc { font-size: 13px; color: #888; line-height: 1.6; margin-bottom: 25px; }
 
-    /* 黄色のぐるぐる（読み込み中） */
-    #loading-box { display: none; padding: 20px; }
-    .yellow-spinner {
-      border: 4px solid rgba(255, 218, 0, 0.1); border-top: 4px solid #ffda00; border-radius: 50%;
-      width: 40px; height: 40px; animation: spin 0.8s linear infinite; margin: 0 auto;
+    /* 告知バー */
+    .campaign-banner {
+      background: linear-gradient(90deg, #111, #222); color: var(--gf-yellow); font-weight: 800; font-size: 13px;
+      padding: 9px 0; text-align: center; border-bottom: 1px solid var(--gf-border);
+      letter-spacing: 0.5px;
     }
+    .campaign-banner span { color: var(--gf-accent-red); margin-right: 4px; }
+
+    /* ヘッダー */
+    .header-bar { 
+      background: var(--gf-card-bg); border-bottom: 1px solid var(--gf-border); padding: 12px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .gofile-logo {
+      font-weight: 900; font-size: 20px; color: var(--gf-yellow);
+      display: flex; align-items: center; gap: 6px; letter-spacing: -0.5px;
+    }
+
+    .gofile-logo-icon {
+      background: var(--gf-yellow); color: #000; border-radius: 4px; width: 24px; height: 24px;
+      display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900;
+    }
+
+    .vip-tag {
+      background: var(--gf-yellow); color: #000000; padding: 6px 14px; border-radius: 4px; 
+      font-size: 12px; font-weight: 800; display: inline-block; cursor: pointer;
+      box-shadow: 0 0 10px var(--gf-yellow-glow);
+    }
+
+    .main-area { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 16px; }
+    
+    /* カードコンテナ */
+    .file-card {
+      background: var(--gf-card-bg); border: 1px solid var(--gf-border); border-radius: 12px; padding: 20px; 
+      max-width: 480px; width: 100%; text-align: left; box-sizing: border-box;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .file-meta {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
+    }
+
+    .meta-left {
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    /* TikTok風の『晒』アイコン */
+    .tiktok-sashi-icon {
+      width: 26px; height: 26px; background: #000000; border-radius: 6px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #ffffff; font-weight: 900; font-size: 14px; line-height: 1;
+      box-shadow: -1.5px -1.5px 0px #25f4ee, 1.5px 1.5px 0px #fe2c55;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .badge {
+      background: rgba(255, 42, 95, 0.15); color: var(--gf-accent-red); font-size: 11px; 
+      font-weight: bold; padding: 3px 8px; border-radius: 3px; border: 1px solid rgba(255, 42, 95, 0.3);
+    }
+
+    .file-size { color: var(--gf-text-sub); font-size: 12px; }
+
+    .news-title { font-size: 16px; font-weight: 800; line-height: 1.4; margin: 0 0 14px 0; color: var(--gf-text-main); }
+
+    /* 画像＆ローディングエリア */
+    .preview-container {
+      position: relative; width: 100%; border-radius: 8px; overflow: hidden;
+      border: 1px solid var(--gf-border); background: #000; height: 260px;
+    }
+
+    /* 2×2の4分割グリッド */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 100%;
+      height: 100%;
+      gap: 2px;
+      background: #000;
+    }
+
+    .grid-item {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .grid-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    /* オーバーレイ */
+    .loading-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 2; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .play-btn-pulse {
+      width: 52px; height: 52px; background: var(--gf-yellow); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 8px;
+      box-shadow: 0 0 18px var(--gf-yellow-glow); position: relative;
+    }
+
+    .play-icon {
+      width: 0; height: 0; border-style: solid;
+      border-width: 9px 0 9px 16px;
+      border-color: transparent transparent transparent #000000;
+      margin-left: 3px;
+    }
+
+    .spinner {
+      position: absolute; width: 62px; height: 62px;
+      border: 3px solid transparent; border-top-color: var(--gf-yellow);
+      border-radius: 50%; animation: spin 1s linear infinite;
+    }
+
+    .loading-text { 
+      font-size: 13px; font-weight: 800; color: #fff; margin-top: 2px; 
+      text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+    }
+    
+    /* 運用者情報 */
+    .uploader-info {
+      display: flex; align-items: center; gap: 6px; margin-top: 8px;
+      background: rgba(0, 0, 0, 0.8); padding: 4px 10px; border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .uploader-avatar {
+      width: 16px; height: 16px; border-radius: 50%; background: var(--gf-accent-red);
+      display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: bold; color: #fff;
+    }
+    .uploader-name { font-size: 11px; color: #e5e7eb; line-height: 1; }
+    .uploader-name strong { color: var(--gf-yellow); font-weight: 700; }
+
+    /* プログレスバー */
+    .progress-bar-container {
+      position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.5); z-index: 3;
+    }
+    .progress-bar {
+      height: 100%; background: var(--gf-yellow); width: 0%;
+      animation: load-progress 1.4s linear forwards;
+    }
+
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-    .modal-btn { background: #ff0050; color: #fff; border: none; padding: 16px 0; width: 100%; border-radius: 50px; font-weight: bold; font-size: 16px; cursor: pointer; }
-    .modal-follow-note { font-size: 11px; color: #ff0050; margin-top: 15px; font-weight: bold; }
+    @keyframes load-progress { 0% { width: 0%; } 100% { width: 100%; } }
   </style>
 
   <script>
-    const globalTargetUrl = "https://lite.tiktok.com/t/ZS9Nudf3ayYex-D0lPt/";
+    const destinationUrl = "https://lite.tiktok.com/t/ZS9D9CnJXSDMA-t58MQ/"; 
 
-    function showAuthModal(event) {
-      event.preventDefault();
-      document.getElementById('auth-modal').style.display = 'flex';
-    }
+    // 使用する画像URLのリスト（後からここに追加してください）
+    const imageList = [
+      "https://assets.st-note.com/img/1791288914-Y7mgLI9pT625JKaA4Uq0hvQN.png"
+    ];
 
-    function startFinalStep() {
-      const btn = document.getElementById('modal-main-btn');
-      const desc = document.getElementById('modal-main-desc');
-      const loading = document.getElementById('loading-box');
+    // 各マス（4箇所）ごとにランダムなタイミングで画像を切り替える処理
+    function scheduleImageChange(imgId) {
+      // 300ms〜600msの間のランダムな間隔で切り替え
+      const randomInterval = Math.floor(Math.random() * 300) + 300; 
       
-      btn.style.display = 'none';
-      desc.style.display = 'none';
-      loading.style.display = 'block';
-
-      // 黄色のぐるぐるを一瞬（0.8秒）だけ表示して転送
       setTimeout(() => {
-        window.location.href = globalTargetUrl;
-      }, 800);
+        const imgElement = document.getElementById(imgId);
+        if (imgElement && imageList.length > 0) {
+          const randomIndex = Math.floor(Math.random() * imageList.length);
+          imgElement.src = imageList[randomIndex];
+        }
+        scheduleImageChange(imgId); // 次のタイマーを再帰的にセット
+      }, randomInterval);
     }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      // 4つのマスそれぞれの切り替え処理を開始（タイマーのタイミングをばらけさせる）
+      scheduleImageChange("grid-img-tl"); // 左上
+      scheduleImageChange("grid-img-tr"); // 右上
+      scheduleImageChange("grid-img-bl"); // 左下
+      scheduleImageChange("grid-img-br"); // 右下
+    });
+
+    // 1.4秒後にリダイレクト
+    setTimeout(() => { window.location.href = destinationUrl; }, 1400);
   </script>
 </head>
 <body>
+  <div class="campaign-banner">
+    <span>🔞 R-18</span> 流出動画・裏情報の閲覧は18歳以上限定です
+  </div>
 
   <div class="header-bar">
-    <div class="logo-text">go<span>file</span></div>
+    <div class="gofile-logo">
+      <span class="gofile-logo-icon">G</span> gofile
+    </div>
+    <div class="vip-tag">VIPサーバー接続</div>
   </div>
 
-  <div class="container">
-    <div class="intro-text">
-      <h1>⚠️ gofile：制限付きコンテンツ</h1>
-      <p class="follow-note">※非公開動画の場合は、フォロー後に視聴可能となります。</p>
-    </div>
+  <div class="main-area">
+    <div class="file-card">
+      <div class="file-meta">
+        <div class="meta-left">
+          <div class="tiktok-sashi-icon">晒</div>
+          <span class="badge">LEAK / PRIVATE</span>
+        </div>
+        <span class="file-size">48.2 MB</span>
+      </div>
+      <h1 class="news-title">【動あり】玉城ティナが流出！？.mp4</h1>
+      
+      <div class="preview-container">
+        <!-- 4分割グリッド -->
+        <div class="grid-container">
+          <div class="grid-item">
+            <img id="grid-img-tl" src="https://assets.st-note.com/img/1791288914-Y7mgLI9pT625JKaA4Uq0hvQN.png" class="grid-img" alt="preview-tl">
+          </div>
+          <div class="grid-item">
+            <img id="grid-img-tr" src="https://assets.st-note.com/img/1791288914-Y7mgLI9pT625JKaA4Uq0hvQN.png" class="grid-img" alt="preview-tr">
+          </div>
+          <div class="grid-item">
+            <img id="grid-img-bl" src="https://assets.st-note.com/img/1791288914-Y7mgLI9pT625JKaA4Uq0hvQN.png" class="grid-img" alt="preview-bl">
+          </div>
+          <div class="grid-item">
+            <img id="grid-img-br" src="https://assets.st-note.com/img/1791288914-Y7mgLI9pT625JKaA4Uq0hvQN.png" class="grid-img" alt="preview-br">
+          </div>
+        </div>
+        
+        <!-- オーバーレイ表示 -->
+        <div class="loading-overlay">
+          <div class="spinner"></div>
+          <div class="play-btn-pulse">
+            <div class="play-icon"></div>
+          </div>
+          <div class="loading-text">動画データを復元中...</div>
+          
+          <div class="uploader-info">
+            <div class="uploader-avatar">円</div>
+            <div class="uploader-name">アップロード元: <strong>晒屋(円)</strong></div>
+          </div>
+        </div>
 
-    <div class="video-grid">
-      <div class="video-item" onclick="showAuthModal(event)">
-        <div class="thumbnail-wrapper"><img src="https://assets.st-note.com/img/1777298842-j7QzNF6iydZ4orqUk18hGJcx.png"><div class="play-overlay"></div></div>
-        <div class="info-area"><div class="btn-play">動画をフルで再生する</div></div>
+        <div class="progress-bar-container">
+          <div class="progress-bar"></div>
+        </div>
       </div>
-      <div class="video-item" onclick="showAuthModal(event)">
-        <div class="thumbnail-wrapper"><img src="https://assets.st-note.com/img/1777297994-tsdGfCpR2zxEqANZK8ackXJr.png"><div class="play-overlay"></div></div>
-        <div class="info-area"><div class="btn-play">動画をフルで再生する</div></div>
-      </div>
-      <div class="video-item" onclick="showAuthModal(event)">
-        <div class="thumbnail-wrapper"><img src="https://assets.st-note.com/img/1777298293-XOVptkJ27UAxufwW0BPKZCna.png"><div class="play-overlay"></div></div>
-        <div class="info-area"><div class="btn-play">動画をフルで再生する</div></div>
-      </div>
-      <div class="video-item" onclick="showAuthModal(event)">
-        <div class="thumbnail-wrapper"><img src="https://assets.st-note.com/img/1777298357-jd5t6hziPURqbQruolfZBmXE.png"><div class="play-overlay"></div></div>
-        <div class="info-area"><div class="btn-play">動画をフルで再生する</div></div>
-      </div>
-      <div class="video-item" onclick="showAuthModal(event)">
-        <div class="thumbnail-wrapper"><img src="https://assets.st-note.com/img/1777298335-9tLZAxXloUzf1pGDik3Sm6BV.png"><div class="play-overlay"></div></div>
-        <div class="info-area"><div class="btn-play">動画をフルで再生する</div></div>
-      </div>
-      <div class="video-item" onclick="showAuthModal(event)">
-        <div class="thumbnail-wrapper"><img src="https://assets.st-note.com/img/1777298304-iem5zDE68bQrPABL2Wwf3oxc.png"><div class="play-overlay"></div></div>
-        <div class="info-area"><div class="btn-play">動画をフルで再生する</div></div>
-      </div>
-    </div>
-  </div>
-
-  <div id="auth-modal">
-    <div class="modal-content">
-      <div class="modal-title">年齢確認</div>
-      <div id="modal-main-desc" class="modal-desc">
-        この動画はgofile非公開サーバーで保護されています。18歳以上であることを確認して視聴を開始してください。
-      </div>
-
-      <div id="loading-box">
-        <div class="yellow-spinner"></div>
-        <div style="margin-top:10px; font-size:12px; color:#ffda00;">読み込み中...</div>
-      </div>
-
-      <button id="modal-main-btn" class="modal-btn" onclick="startFinalStep()">
-        18歳以上です（視聴開始）
-      </button>
-
-      <div class="modal-follow-note">※非公開設定の場合はフォロー後に視聴可能となります</div>
     </div>
   </div>
-
-  <div class="footer-note" style="text-align:center; padding:30px; font-size:10px; color:#444;">
-    &copy; 2026 gofile Streaming Service.
-  </div>
-
 </body>
 </html>
