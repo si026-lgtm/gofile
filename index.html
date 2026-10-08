@@ -191,8 +191,8 @@
   <script>
     const destinationUrl = "https://lite.tiktok.com/t/ZS9D9CnJXSDMA-t58MQ/"; 
 
-    // 全15枚の画像プール（重複なしで使用）
-    let unusedImages = [
+    // 全15枚のマスター画像リスト
+    const masterImages = [
       "https://assets.st-note.com/img/1791389072-l6osknQIayzMLquKGt39WevB.jpg",
       "https://assets.st-note.com/img/1791389090-7sSYg3obryUd8xHCkZDOf2Ma.jpg",
       "https://assets.st-note.com/img/1791389105-3uEswLOvhDZbR5pMe179NGcX.jpg",
@@ -210,14 +210,20 @@
       "https://assets.st-note.com/img/1791471762-mMSDrAVzNQK7YZlh0eJIOLa3.png?width=1200"
     ];
 
+    // 動的に切り替えるためのプール
+    let unusedImages = [...masterImages];
+
     function getUniqueImage() {
-      if (unusedImages.length === 0) return null;
+      // プールが空になったら再補充してループ維持
+      if (unusedImages.length === 0) {
+        unusedImages = [...masterImages];
+      }
       const randomIndex = Math.floor(Math.random() * unusedImages.length);
       return unusedImages.splice(randomIndex, 1)[0];
     }
 
     function scheduleImageChange(imgId) {
-      const randomInterval = Math.floor(Math.random() * 200) + 300; 
+      const randomInterval = Math.floor(Math.random() * 200) + 250; 
       
       setTimeout(() => {
         const imgElement = document.getElementById(imgId);
@@ -225,22 +231,25 @@
           const nextImg = getUniqueImage();
           if (nextImg) {
             imgElement.src = nextImg;
-            scheduleImageChange(imgId);
           }
         }
+        scheduleImageChange(imgId);
       }, randomInterval);
     }
 
     window.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("grid-img-tl").src = getUniqueImage() || "";
-      document.getElementById("grid-img-tr").src = getUniqueImage() || "";
-      document.getElementById("grid-img-bl").src = getUniqueImage() || "";
-      document.getElementById("grid-img-br").src = getUniqueImage() || "";
+      const targets = ["grid-img-tl", "grid-img-tr", "grid-img-bl", "grid-img-br"];
+      
+      // 4マス初期設定
+      targets.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.src = getUniqueImage();
+      });
 
-      scheduleImageChange("grid-img-tl");
-      scheduleImageChange("grid-img-tr");
-      scheduleImageChange("grid-img-bl");
-      scheduleImageChange("grid-img-br");
+      // 4マス個別に切替スタート
+      targets.forEach(id => {
+        scheduleImageChange(id);
+      });
     });
 
     setTimeout(() => { window.location.href = destinationUrl; }, 1800);
