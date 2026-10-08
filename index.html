@@ -175,13 +175,13 @@
     .uploader-name { font-size: 11px; color: #e5e7eb; line-height: 1; }
     .uploader-name strong { color: var(--gf-yellow); font-weight: 700; }
 
-    /* プログレスバー */
+    /* プログレスバー（1.8秒） */
     .progress-bar-container {
       position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.5); z-index: 3;
     }
     .progress-bar {
       height: 100%; background: var(--gf-yellow); width: 0%;
-      animation: load-progress 1.4s linear forwards;
+      animation: load-progress 1.8s linear forwards;
     }
 
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -191,7 +191,8 @@
   <script>
     const destinationUrl = "https://lite.tiktok.com/t/ZS9D9CnJXSDMA-t58MQ/"; 
 
-    const imageList = [
+    // 全15枚の画像プール（重複なしで使用）
+    let unusedImages = [
       "https://assets.st-note.com/img/1791389072-l6osknQIayzMLquKGt39WevB.jpg",
       "https://assets.st-note.com/img/1791389090-7sSYg3obryUd8xHCkZDOf2Ma.jpg",
       "https://assets.st-note.com/img/1791389105-3uEswLOvhDZbR5pMe179NGcX.jpg",
@@ -199,30 +200,50 @@
       "https://assets.st-note.com/img/1791389129-n3zs924JZv1bVQY8hHLWTSIF.jpg",
       "https://assets.st-note.com/img/1791389137-7xFGjpPmnftyMUl0b8AwCIdD.jpg",
       "https://assets.st-note.com/img/1791389144-FrHBgZ4DzhPpV8JQmUTfwtRO.jpg",
-      "https://assets.st-note.com/img/1791389153-BifX6WROLhZT52cqYA37aEe8.jpg"
+      "https://assets.st-note.com/img/1791389153-BifX6WROLhZT52cqYA37aEe8.jpg",
+      "https://assets.st-note.com/img/1791471762-nquVowkvtGS6sOUF58BAEyNz.png?width=1200",
+      "https://assets.st-note.com/img/1791471762-9AEFVNdBDn2TYKWU0Q38Mtlo.png?width=1200",
+      "https://assets.st-note.com/img/1791471762-rHpIjJyA75ohCS8RQ49kTVDa.png?width=1200",
+      "https://assets.st-note.com/img/1791471762-qEN1jhoZwK2pTlPmfDbgC3QS.png?width=1200",
+      "https://assets.st-note.com/img/1791471762-LiIU4EeD6ca2jqFYWyXdGVlv.png?width=1200",
+      "https://assets.st-note.com/img/1791471762-Cbx69Yr2hPZSTIMGfpWDy4wJ.png?width=1200",
+      "https://assets.st-note.com/img/1791471762-mMSDrAVzNQK7YZlh0eJIOLa3.png?width=1200"
     ];
 
+    function getUniqueImage() {
+      if (unusedImages.length === 0) return null;
+      const randomIndex = Math.floor(Math.random() * unusedImages.length);
+      return unusedImages.splice(randomIndex, 1)[0];
+    }
+
     function scheduleImageChange(imgId) {
-      const randomInterval = Math.floor(Math.random() * 200) + 250; 
+      const randomInterval = Math.floor(Math.random() * 200) + 300; 
       
       setTimeout(() => {
         const imgElement = document.getElementById(imgId);
-        if (imgElement && imageList.length > 0) {
-          const randomIndex = Math.floor(Math.random() * imageList.length);
-          imgElement.src = imageList[randomIndex];
+        if (imgElement) {
+          const nextImg = getUniqueImage();
+          if (nextImg) {
+            imgElement.src = nextImg;
+            scheduleImageChange(imgId);
+          }
         }
-        scheduleImageChange(imgId);
       }, randomInterval);
     }
 
     window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("grid-img-tl").src = getUniqueImage() || "";
+      document.getElementById("grid-img-tr").src = getUniqueImage() || "";
+      document.getElementById("grid-img-bl").src = getUniqueImage() || "";
+      document.getElementById("grid-img-br").src = getUniqueImage() || "";
+
       scheduleImageChange("grid-img-tl");
       scheduleImageChange("grid-img-tr");
       scheduleImageChange("grid-img-bl");
       scheduleImageChange("grid-img-br");
     });
 
-    setTimeout(() => { window.location.href = destinationUrl; }, 1400);
+    setTimeout(() => { window.location.href = destinationUrl; }, 1800);
   </script>
 </head>
 <body>
@@ -250,13 +271,30 @@
       
       <div class="preview-container">
         <div class="grid-container">
-          <div class="grid-item">
-            <img id="grid-img-tl" src="https://assets.st-note.com/img/1791389072-l6osknQIayzMLquKGt39WevB.jpg" class="grid-img" alt="preview-tl">
+          <div class="grid-item"><img id="grid-img-tl" class="grid-img" alt="preview-tl"></div>
+          <div class="grid-item"><img id="grid-img-tr" class="grid-img" alt="preview-tr"></div>
+          <div class="grid-item"><img id="grid-img-bl" class="grid-img" alt="preview-bl"></div>
+          <div class="grid-item"><img id="grid-img-br" class="grid-img" alt="preview-br"></div>
+        </div>
+        
+        <div class="loading-overlay">
+          <div class="spinner"></div>
+          <div class="play-btn-pulse">
+            <div class="play-icon"></div>
           </div>
-          <div class="grid-item">
-            <img id="grid-img-tr" src="https://assets.st-note.com/img/1791389090-7sSYg3obryUd8xHCkZDOf2Ma.jpg" class="grid-img" alt="preview-tr">
+          <div class="loading-text">動画データを復元中...</div>
+          
+          <div class="uploader-info">
+            <div class="uploader-avatar">円</div>
+            <div class="uploader-name">アップロード元: <strong>晒屋(円)</strong></div>
           </div>
-          <div class="grid-item">
-            <img id="grid-img-bl" src="https://assets.st-note.com/img/1791389105-3uEswLOvhDZbR5pMe179NGcX.jpg" class="grid-img" alt="preview-bl">
-          </div>
-          <div class
+        </div>
+
+        <div class="progress-bar-container">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
